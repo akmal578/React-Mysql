@@ -52,7 +52,7 @@ app.delete("/api/delete/:id", (req, res) => {
 
   const sqlDelete = "DELETE FROM employees WHERE id = ?";
 
-  db.query(sqlDelete, id, (err, result) => {
+  db.query(sqlDelete, id, (err) => {
     if (err) {
       console.error(err);
     }
