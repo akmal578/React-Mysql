@@ -54,7 +54,7 @@ const App = () => {
               <FormList url={url} />
             </Route>
             <Route path="/list">
-              <h3 className="card-title">List item</h3>
+              <h3 className="card-title">Card item</h3>
               <CardList
                 isLoading={isLoading}
                 employeeList={employeeList}
