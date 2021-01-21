@@ -1,4 +1,4 @@
-# This is a implementation of React JS with MySQL with Formik + MaterialUI
+# This is a implementation of React JS with MySQL + Formik + MaterialUI
 
 1. Clone the repo
 
