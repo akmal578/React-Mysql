@@ -19,4 +19,4 @@
 4. Go to client folder
 - `npm start`
 
-5. Make sure your mysql server already started and change the default username and password in `index.js`
+5. Make sure your mysql server already started and change the default username and password, database name in `index.js`
