@@ -1,5 +1,4 @@
 import { Formik, Field, Form } from "formik";
-import axios from "axios";
 import {
   FormGroup,
   Button,
@@ -8,7 +7,9 @@ import {
   Typography,
 } from "@material-ui/core";
 
-const FormList = ({ url }) => {
+const FormList = ({ postItems, show }) => {
+  //const [show, setShow] = useState(false);
+
   const useStyles = makeStyles({
     formstyle: {
       margin: "5px",
@@ -25,18 +26,21 @@ const FormList = ({ url }) => {
   });
   const a = useStyles();
 
-  const postItems = async (data, { setSubmitting, resetForm }) => {
+  /*   const postItems = async (data, { setSubmitting, resetForm }) => {
     try {
       const res = await axios.post(`${url}/insert`, data);
       setSubmitting(true);
       console.log("Submit", res.data);
       setSubmitting(false);
       resetForm();
-      alert("Success");
+      setShow(true);
+      setTimeout(() => {
+        setShow(false);
+      }, 1500);
     } catch (err) {
       console.error(err);
     }
-  };
+  }; */
 
   return (
     <div>
@@ -52,6 +56,7 @@ const FormList = ({ url }) => {
       >
         {({ values, isSubmitting }) => (
           <Form className="form-container">
+            {show && <div className="success-modal">Successfully Added</div>}
             <Typography className="Text" variant="h3">
               Simple Form
             </Typography>

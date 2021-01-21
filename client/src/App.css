@@ -70,11 +70,19 @@ body {
 
 .card {
   cursor: pointer;
-  background-color: transparent;
   height: 280px;
   text-align: center;
   background-color: aqua;
   padding: 2rem 1rem;
+}
+
+.card:hover {
+  background-color: rgb(0, 255, 213);
+}
+
+.card a {
+  text-decoration: none;
+  color: black;
 }
 
 .card li {
@@ -87,6 +95,14 @@ body {
   font-size: 55px;
   text-align: center;
   margin: 3rem auto;
+}
+
+.success-modal {
+  text-align: center;
+  font-size: 20px;
+  background-color: aquamarine;
+  padding: 20px;
+  border-radius: 6px;
 }
 
 @media (max-width: 800px) {

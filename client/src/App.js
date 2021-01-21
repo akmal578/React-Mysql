@@ -6,16 +6,19 @@ import Navbar from "./components/Navbar";
 //import useFetch from "./components/useFetch";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
+import CardDetails from "./components/CardDetails";
 
 const App = () => {
   const [url] = useState("http://localhost:3001");
   const [isLoading, setisLoading] = useState(true);
   const [employeeList, setEmployeesList] = useState([]);
+  const [update, setUpdate] = useState([]);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const res = await axios.get("http://localhost:3001/employees");
+        const res = await axios.get(`${url}/employees`);
         console.log(res.data);
         setEmployeesList(res.data);
         setisLoading(false);
@@ -25,9 +28,8 @@ const App = () => {
     };
 
     fetchItems();
-
     //abort fetch
-  }, []);
+  }, [url, update]);
 
   const DeleteItem = (id) => {
     const newEmployee = employeeList.filter(
@@ -35,13 +37,29 @@ const App = () => {
     );
     setEmployeesList(newEmployee);
     const res = axios
-      .delete(`http://localhost:3001/api/delete/${id}`)
+      .delete(`${url}/api/delete/${id}`)
       .then(() => {
         console.log(res.data);
-        alert("Success Deleted");
       })
       // Handle Error Here
       .catch((err) => console.error(err));
+  };
+
+  const postItems = async (data, { setSubmitting, resetForm }) => {
+    try {
+      const res = await axios.post(`${url}/insert`, data);
+      setSubmitting(true);
+      console.log(res.data);
+      setSubmitting(false);
+      resetForm();
+      setUpdate(data);
+      setShow(true);
+      setTimeout(() => {
+        setShow(false);
+      }, 1500);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -51,8 +69,9 @@ const App = () => {
         <div className="container">
           <Switch>
             <Route exact path="/">
-              <FormList url={url} />
+              <FormList url={url} postItems={postItems} show={show} />
             </Route>
+
             <Route path="/list">
               <h3 className="card-title">List item</h3>
               <CardList
@@ -60,6 +79,10 @@ const App = () => {
                 employeeList={employeeList}
                 DeleteItem={DeleteItem}
               />
+            </Route>
+
+            <Route exact path="/cards/:id">
+              <CardDetails employeeList={employeeList} />
             </Route>
           </Switch>
         </div>

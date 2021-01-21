@@ -1,10 +1,11 @@
 import React from "react";
 import { Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const CardItem = ({ val, DeleteItem }) => {
   return (
     <div className="card">
-      <div>
+      <Link to={`/cards/${val.id}`}>
         <ul>
           <li>Name: {val.name}</li>
           <li>Age: {val.age}</li>
@@ -21,7 +22,7 @@ const CardItem = ({ val, DeleteItem }) => {
         >
           Delete
         </Button>
-      </div>
+      </Link>
     </div>
   );
 };
