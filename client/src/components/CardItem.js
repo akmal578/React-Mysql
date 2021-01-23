@@ -13,16 +13,16 @@ const CardItem = ({ val, DeleteItem }) => {
           <li>Position: {val.position}</li>
           <li>Wage: {val.wage}</li>
         </ul>
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          style={{ marginBlock: "1rem" }}
-          onClick={() => DeleteItem(val.id)}
-        >
-          Delete
-        </Button>
       </Link>
+      <Button
+        type="submit"
+        variant="contained"
+        color="primary"
+        style={{ marginBlock: "1rem" }}
+        onClick={() => DeleteItem(val.id)}
+      >
+        Delete
+      </Button>
     </div>
   );
 };

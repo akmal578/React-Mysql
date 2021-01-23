@@ -105,6 +105,17 @@ body {
   border-radius: 6px;
 }
 
+.details {
+  color: #3f51b5;
+  top: 20%;
+  position: absolute;
+}
+
+.details li {
+  list-style: none;
+  padding-bottom: 10px;
+}
+
 @media (max-width: 800px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
