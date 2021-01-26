@@ -115,7 +115,7 @@ const CardDetails = ({ updateItems, employeeList }) => {
           {employeeList
             .filter((val) => val.id.toString() === id.toString())
             .map((newval) => (
-              <ul>
+              <ul key={newval.id}>
                 <li>Name: {newval.name}</li>
                 <li>Age: {newval.age}</li>
                 <li>Country: {newval.country}</li>
