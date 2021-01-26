@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import CardDetails from "./components/CardDetails";
+// import SkeletonElement from "./skeletons/SkeletonElement";
 
 const App = () => {
   const [url] = useState("http://localhost:3001");
@@ -85,6 +86,7 @@ const App = () => {
 
             <Route path="/list">
               <h3 className="card-title">List item</h3>
+              {/* <SkeletonElement type="title" /> */}
               <CardList
                 isLoading={isLoading}
                 employeeList={employeeList}
