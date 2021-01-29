@@ -17,18 +17,20 @@ const App = () => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        const res = await axios.get(`${url}/employees`);
-        console.log(res.data);
-        setEmployeesList(res.data);
-        setisLoading(false);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    fetchItems();
+    setTimeout(() => {
+      //add delay to show skeleton loading
+      const fetchItems = async () => {
+        try {
+          const res = await axios.get(`${url}/employees`);
+          console.log(res.data);
+          setEmployeesList(res.data);
+          setisLoading(false);
+        } catch (err) {
+          console.error(err);
+        }
+      };
+      fetchItems();
+    }, 2000);
     //abort fetch
   }, [url, update]);
 

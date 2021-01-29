@@ -5,12 +5,14 @@ import "./skeleton.css";
 function SkeletonCards() {
   return (
     <div className="skeleton-card">
-      <SkeletonElement type="title" />
-      <SkeletonElement type="title" />
-      <SkeletonElement type="title" />
-      <SkeletonElement type="title" />
-      <SkeletonElement type="title" />
-      <SkeletonElement type="button" />
+      <div className="wrapper">
+        <SkeletonElement type="title" />
+        <SkeletonElement type="title" />
+        <SkeletonElement type="title" />
+        <SkeletonElement type="title" />
+        <SkeletonElement type="title" />
+        <SkeletonElement type="button" />
+      </div>
     </div>
   );
 }

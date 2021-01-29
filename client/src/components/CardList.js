@@ -6,9 +6,14 @@ import CardItem from "./CardItem";
 const CardList = ({ employeeList, isLoading, DeleteItem }) => {
   return (
     <section>
-      <div className="cards">
-        {isLoading && [1, 2, 3, 4, 5].map((n) => <SkeletonCards key={n} />)}
-      </div>
+      {isLoading && (
+        <div className="cards">
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+            <SkeletonCards key={n} />
+          ))}
+        </div>
+      )}
+
       {!isLoading && (
         <div className="cards">
           {employeeList.map((val) => (
